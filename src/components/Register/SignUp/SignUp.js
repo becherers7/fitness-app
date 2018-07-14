@@ -2,12 +2,7 @@ import React, { Component } from 'react';
 import Register from './Register'
 import firebase from '../../../firebase/firebase.js';
 import * as routes from '../../../constants/routes';
-import {
-  BrowserRouter as Router,
-  Route,
-  Redirect,
-  Switch
-} from 'react-router-dom';
+import { Route,} from 'react-router-dom';
 import SignIn from '../SignIn/SignIn';
 
 class SignUp extends Component {
@@ -32,7 +27,7 @@ class SignUp extends Component {
 			firebase.auth().createUserWithEmailAndPassword(email, password).catch(function(error) {
 				var errorCode = error.code;
 				var errorMessage = error.message;
-				if (errorCode == 'auth/weak-password') {
+				if (errorCode === 'auth/weak-password') {
 		          alert('The password is too weak.');
 		        } else {
 		          alert(errorMessage);

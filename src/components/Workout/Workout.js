@@ -7,21 +7,8 @@ const metrics = [
 	{ label: "Weight", type: "weight"}
 ];
 
-// &otimes; &CircleTimes;
-// &#x02297;
-// &#8855;
-// &cross;
-// &#x02717;
-// &#10007;
-
-// &Cross;
-// &#x02A2F;
-// &#10799;
 const workout = (props) => {
-	console.log(props.name);
-	console.log(props.id);
-	console.log(props.metrics);
-	 let workoutID = Math.random().toString(36).substring(7);
+
 	return (
 		<div className="inputGroup">
 			

@@ -25,13 +25,11 @@ class Dashboard extends Component {
     if (user) {
       this.setState({ userEmail: user.email });
       this.setState({ userId: user.uid });
-      console.log(this.state.userEmail);
-      console.log(this.state.userId);
+
       const getExercises = [];
       const fullExercises = [];
       
       const exerciseRef = firebase.database().ref(this.state.userId + '/exercises');
-      const holdExercises = [];
       
       exerciseRef.on("child_added", snapshot => {
           const newExercise = snapshot.val();
@@ -40,7 +38,7 @@ class Dashboard extends Component {
           fullExercises.push(newExercise);
            this.setState({exercises: getExercises});
           this.setState({fullExercises: fullExercises});
-          console.log(this.state.fullExercises);
+
         })
     } 
   });
@@ -65,40 +63,32 @@ class Dashboard extends Component {
     const workouts = [...this.state.workouts];
     workouts.push(workout);
     this.setState({workouts: workouts});
-    console.log(this.state.workouts);
+
   }
   editMetricsHandler = (event, id, type) => {
     console.log(id);
     console.log(event.target);
     const workouts = this.state.workouts;
     
-    console.log(event.target.name);
     const specifyExercise = workouts.find(i => i.id === id);//returns the value of the first element in an array that pass a test
     
-    console.log(specifyExercise);
     const modifiedExercise = {...specifyExercise, [type]: event.target.value}//: is a key value inside the object
     //Make a copy of the array, where the element in the array is = to the parameter type and that value of the element is the event.target.value
-    console.log(modifiedExercise);
+
     this.setState({ workouts: workouts.map(workout => workout.id !== id ? workout : modifiedExercise) });
     //workmodified exercise rreplcate if workout.id === id, the entire modified Exercise gets modified.
-    console.log(this.state.workouts);
    
   }
   deleteExerciseHandler = (index) => {
       const exercise = this.state.fullExercises[index];
-      console.log(exercise);
 
       const exerciseRef = firebase.database().ref(this.state.userId + '/exercises');
       exerciseRef.once('value', snapshot => {
-        console.log(exerciseRef.child(snapshot.key));
         snapshot.forEach(childSnapshot => {
           let newKey = childSnapshot.key;
-          console.log(newKey);
           const snap = childSnapshot.child("exercise").val();
           if (exercise.exercise === snap) {
-            console.log(snap);
             for (let snap in newKey) {
-              console.log(newKey);
               exerciseRef.child(newKey).remove();
             }
           }
@@ -107,8 +97,6 @@ class Dashboard extends Component {
       const exercises = [...this.state.exercises];
       exercises.splice(index, 1);
       this.setState({exercises: exercises});
-      console.log(exerciseRef);
-      console.log(this.state.exercises)
   }
   submitNewExerciseHandler = () => {
     const userRefExercise = firebase.database().ref(this.state.userId + '/exercises');
@@ -122,36 +110,30 @@ class Dashboard extends Component {
     }
     
     userRefExercise.push(newExercise);
-    // console.log(exerciseRef);
   }
+
   submitNewWorkoutHandler = () => {
       var dateObj = new Date();
       var month = dateObj.getUTCMonth() + 1; //months from 1-12
       var day = dateObj.getUTCDate();
       var year = dateObj.getUTCFullYear();
-
       const time = month + "/" + day + "/" + year;
       const workoutRef = firebase.database().ref(this.state.userId + '/workouts');
       workoutRef.push(this.state.workouts.concat({time: time}));
-      console.log(workoutRef);
   }
+
   newExerciseHandler = (event) => {
 
     let newExercise = event.target.value;
-
     this.setState({ newExercise: newExercise });
-    console.log(this.state.newExercise);
   }
 
   selectExerciseHandler = (i, index) => {
-    // console.log(i);
     const exercise = this.state.fullExercises[index];
     
     const previous = [...this.state.workouts];
     previous.push(exercise);
-    // console.log(previous);
     this.setState({workouts: previous});
-    // console.log(previous);
   }
 
 

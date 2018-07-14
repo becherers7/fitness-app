@@ -1,8 +1,6 @@
 import React, {Component} from 'react';
 import Login from './Login'
-import {Route, Redirect} from 'react-router';
 import firebase from '../../../firebase/firebase.js';
-import * as routes from '../../../constants/routes';
 import './login.css';
 
 class SignIn extends Component {

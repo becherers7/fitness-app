@@ -1,7 +1,5 @@
 import React, { Component } from 'react';	
-import View from './View/View';
 import firebase from '../../../firebase/firebase.js';
-import PdfButton from './pdfButton'
 import Exercise from './View/Metric/Exercise';
 import Sets from './View/Metric/Sets';
 import Reps from './View/Metric/Reps';
@@ -41,14 +39,6 @@ class SignUp extends Component {
 		var res = doc.autoTableHtmlToJson(elem);
 		doc.autoTable(res.columns, res.data);
 		doc.save("table.pdf");
-	}
-
-	renderPDFButton = () => {
-		{this.state.uploadWorkouts.map(i => {
-      		const timeArray = [];
-			console.log(i.time);
-			
-      	})}
 	}
 
 

@@ -1,6 +1,6 @@
 import React from 'react';
-import * as jsPDF from 'jspdf'
-let pdf = new jsPDF();
+// import * as jsPDF from 'jspdf'
+// let pdf = new jsPDF();
 
 const spacing = {
 			marginBottom: '5%'
