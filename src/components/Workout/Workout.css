@@ -1,0 +1,35 @@
+.numberMetric {
+	/*border-color: green !important;*/
+	/*max-width: 15%;*/
+	font-size: 22px;
+	border-style: none;
+	background-color: rgba(153, 204, 255, 0.2);
+	text-align: center;
+	/*auto-complete: none;*/
+}
+.exerciseMetric {
+	max-width: 25%;
+	font-size: 22px;
+	border-style: none;
+	background-color: rgba(153, 204, 255, 0.8); 
+	text-align: left;
+	margin-left: 1%;
+
+	/*border-left: solid black;*/
+	/*border-left-width: 1px;*/
+}
+.inputGroup {
+	margin-top: 3%;
+	/*border-style: none;*/
+}
+.reps {
+	max-width: 20%;
+	/*padding-left: 3%;*/
+	/*margin-left: 2%;*/
+}
+.sets {
+	max-width: 15%;
+}
+.weight {
+	max-width: 15%;
+}

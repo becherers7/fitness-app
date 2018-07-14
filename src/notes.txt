@@ -1,0 +1,76 @@
+1. User registration and authentication with firebase or passport/node.js.
+2. Create, Read, Update, and Destroy exercises and workouts.//done!
+3. Use axios and firebase to save your exercises and workouts.//done!
+4. Display Exercises to choose from and workouts.//done!
+5. Tabbed workout view for ALL, Muscle groups, Day of the week.
+6. Tabbed exercise view for ALL and muscle groups
+
+data layout:
+
+exercise: {
+	id: "",
+	name: "",
+	muscle group: ""
+
+}
+
+workouts: {
+	exercises: [
+		{
+			id: exerciseID
+			exercise: exerciseName,
+			Sets: "",
+			Reps: "",
+			Weight"
+		},
+	],
+	Day of the week
+	Muscle groups,
+	time stamp.
+}
+
+Design layout
+
+UX flow:
+
+1. Control is a sticky footer so if you scroll it stays there.
+
+2. Create an exercise on left side of the screen with an input for name, and drop down for exercise type. 
+
+3. Tabbed views for Legs, Arms, Abs, Chest, and back.
+
+3. Click on an exercise to display on workout side. Map it so it returns:
+	sets, weight, and reps. //COMPLETE!
+
+4. Show a review workout button.
+
+5. Click on review pops a modal with a save button and your workout
+
+6. Save button posts to database.
+
+7. Search your workouts through a tabbed view of ALL workouts, workouts based on muscle groups, workouts based on day of the week. 
+
+
+Steve you are killing it. You're on your way to doubling your salary!
+
+Alright, here is the problem. You're mapping through workout.
+Workout has only elements of exercise anems. you can't possibly change the value. 
+
+//so this is what you're missing.
+//1. an effective key: the key has to be an identifier of the array. console.log(id); /line 55. It returns undefined and netative one because the id is not
+//found in the array.
+//2. You're mapping through workouts right now which is causing a ton of problems. You are creating an array [] where you click on an exercise that gets
+//appended to the array (workout in this case). But mapping through it is ineffective since it's only made of a name resulting in problem1, we can't
+//tell the difference.
+//3. fullExercises has all the firebase information associated with each exercise. You can't map through fullExercises to render it. Which is why
+//workouts is being mapped.
+//Solution: Change the selectHandler. instead of mapping, how about doing a find, or includes function, that returns the element in the array of fullExercises
+//then add the fullExercise.exercise and fullExercise.key, reps, pretty much all of it to workouts.
+//workouts needs to be in the same functiton as fullExercises which makes sense, because it's going to change person to person.
+
+
+STEVE!!! THIS IS IT! THE HOME STRETCH! MAKE NAVIGATION, THEN MAKE MESSAGING SYSTEM!
+
+OMG STEVE!!!! YOU'RE THE GREATEST! YOU'VE GOTTEN SO MUCH BETTER.
+
+HEre's the deal. Next steps, have the user set the date for the day of the workout. Then make that date clickable styled with underline through <a>

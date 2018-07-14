@@ -1,0 +1,38 @@
+.App-header {
+  text-align: center !important;
+
+}
+
+
+.Split {
+  height: 100%;
+  width: 50%;
+  position: absolute;
+}
+
+.colTitle {
+  font-size: 22px;
+  border-bottom: 1px black solid;
+  text-align: center;
+}
+
+.tagHeader {
+  margin-left: 10%;
+  font-weight: bold;
+}
+
+.left {
+  left: 0;
+}
+
+.right {
+  right: 0;
+}
+
+.exerciseColor {
+  background-color: rgba(153, 204, 255, 0.2);
+  max-width: 80%;
+  border-style: inset;
+  border-radius: 10px;
+  padding-bottom: 3%;
+}

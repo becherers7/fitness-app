@@ -1,0 +1,12 @@
+.AddExercise {
+	border-style: none !important;
+	border-bottom: 2PX solid #4169E1 !important;
+	border-radius: none; 
+	margin-top: 5%; 
+	font-size: 22px;
+	margin-left: 10%;
+}
+
+input:focus, textarea:focus {
+    outline: none;
+}

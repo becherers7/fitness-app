@@ -1,0 +1,17 @@
+.FireButton {
+	background: #4169E1 !important;
+	margin-top: 4%;
+	border-style: none;
+	border-radius: 10px;
+	padding: 2.5%;
+	font-weight: 700;
+	font-size: 16px;
+	margin-left: 10%;
+	color: white;
+}
+.FireButton:hover {
+	background: white !important;
+	background: #4169E1;
+	color: #4169E1;
+	border: 1px solid #4169E1 !important;
+}
